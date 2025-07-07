@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeNova</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Code_icon.png" alt="Logo CodeNova" class="logo" />
+        <img src="https://cdn-icons-png.flaticon.com/512/4359/4359961.png" alt="Logo DropShipping" class="logo" />
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" onclick="showSection('home')">🏠 Home</a></li>
+        <li><a href="#" onclick="showSection('employes')">Employés</a></li>
+        <li><a href="#" onclick="showSection('objectif')">Objectif</a></li>
+        <li><a href="#" onclick="showSection('rdv')">Rendez-vous</a></li>
+        <li><a href="#" onclick="showSection('problemes')">Problèmes</a></li>
+        <li><a href="#" onclick="showSection('authFinance')">Finances</a></li>
+        <li><a href="#" onclick="showSection('creation')">Création</a></li>
+        <li><a href="#" onclick="showSection('authCommandes')">Commandes</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="home" class="section active">
+      <h1>Bienvenue sur <strong>CodeNova</strong></h1>
+      <p class="slogan">"Votre code, notre mission."</p>
+    </section>
+    <section id="employes" class="section">
+      <h2>Employés</h2>
+      <table>
+        <thead><tr><th>Nom</th><th>Rôle</th><th>Téléphone</th><th>Adresse</th></tr></thead>
+        <tbody>
+          <tr><td>Samy Foul</td><td>Manager</td><td>0610463851</td><td>167 rue Marguerite Duras, 59000 Lille</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section id="objectif" class="section">
+      <h2>Objectif</h2>
+      <p>CodeNova vise à offrir des solutions informatiques sur mesure aux petites entreprises, en rendant la technologie accessible et en boostant la productivité.</p>
+    </section>
+    <section id="rdv" class="section">
+      <h2>Prendre rendez-vous</h2>
+      <p>Contactez-nous :</p>
+      <ul>
+        <li><a href="mailto:codenova1203@gmail.com">📧 Mail</a></li>
+        <li><a href="sms:+33610463851">📱 SMS</a></li>
+      </ul>
+    </section>
+    <section id="problemes" class="section">
+      <h2>Problèmes courants</h2>
+      <form>
+        <label><input type="checkbox" /> Site lent</label><br />
+        <label><input type="checkbox" /> Automatisation manquante</label><br />
+        <label><input type="checkbox" /> Interface obsolète</label><br />
+        <label><input type="checkbox" /> Sécurité faible</label><br />
+        <label><input type="checkbox" /> Mauvais référencement</label><br />
+        <label><input type="checkbox" /> Bugs fréquents</label><br />
+        <label><input type="checkbox" /> Pas de version mobile</label><br />
+        <label><input type="checkbox" /> Manque de support</label><br />
+        <label><input type="checkbox" /> Problèmes d’hébergement</label><br />
+        <label><input type="checkbox" /> Dépendance à un prestataire unique</label>
+      </form>
+      <button id="envoyerProblemeBtn">Envoyer</button>
+    </section>
+    <section id="authFinance" class="section">
+      <h2>🔒 Accès sécurisé - Finances</h2>
+      <form id="financeAuthForm">
+        <label for="pinFinance">Entrez le code PIN :</label>
+        <input type="password" id="pinFinance" required />
+        <button type="submit">Accéder</button>
+      </form>
+    </section>
+    <section id="finance" class="section" style="display:none;">
+      <h2>Finances</h2>
+      <table>
+        <thead><tr><th>Poste</th><th>Montant annuel (€)</th></tr></thead>
+        <tbody>
+          <tr><td>Revenus entreprise</td><td>15000</td></tr>
+          <tr><td>Bénéfice du patron</td><td>5993</td></tr>
+        </tbody>
+      </table>
+      <canvas id="financeChart" width="400" height="200"></canvas>
+    </section>
+    <section id="creation" class="section">
+      <h2>Création de l'entreprise</h2>
+      <p>Cette entreprise a été créée par Samy Foul le 1er juin 2025. Il en est extrêmement fier. Sa motivation est née de son stage, où il a longuement réfléchi à développer ces programmes utiles.</p>
+    </section>
+    <section id="authCommandes" class="section">
+      <h2>🔒 Accès sécurisé - Commandes</h2>
+      <form id="commandeAuthForm">
+        <label for="pinCommande">Entrez le code PIN :</label>
+        <input type="password" id="pinCommande" required />
+        <button type="submit">Accéder</button>
+      </form>
+    </section>
+    <section id="commandes" class="section" style="display:none;">
+      <h2>Commandes & Exercées</h2>
+      <form id="commandeForm">
+        <label for="commande">Commandes (Y) :</label>
+        <input type="number" id="commande" required />
+        <label for="exerce">Exercées (X) :</label>
+        <input type="number" id="exerce" required />
+        <button type="submit">Ajouter</button>
+        <button type="button" id="effacerBtn">Effacer</button>
+        <button type="button" id="retourBtn">Retour</button>
+      </form>
+      <canvas id="commandeChart" width="400" height="200"></canvas>
+    </section>
+    <section id="messageContainer" class="section" style="display:none;">
+      <h2>Merci de votre confiance !</h2>
+      <p>Nous vous recontacterons dans moins d'une heure.</p>
+    </section>
+  </main>
+</body>
+</html>
